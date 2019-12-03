@@ -1,12 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Unique Eats</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="assets/css/style.css" type="text/css" rel="stylesheet">
 </head>
+
 <body>
-    
+    <nav class="white" role="navigation">
+        <div class="nav-wrapper container">
+            <a id="logo-container" href="#" class="brand-logo">Unique Eats</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Home</a></li>
+            </ul>
+
+            <ul id="nav-mobile" class="sidenav">
+                <li><a href="#">Home</a></li>
+            </ul>
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+
+    <div id="index-banner" class="parallax-container">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <br><br>
+                <h1 class="header center grey-text text-darken-4">Try your palette!</h1>
+                <div class="row center">
+                    <h5 class="header col s12 grey-text text-darken-4">A clean-cut search engine for finding different
+                        international foods
+                    </h5>
+                </div>
+                <div class="row center">
+                    <div class="input-field col s6">
+                        <select class="browser-default">
+                            <option value="" disabled selected>Cuisine Type</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                    </div>
+                    <form>
+                        <div class="input-field col s6">
+                            <input class="browser-default" id="search" type="search" placeholder=" Location" required>
+                            <!-- <label class="label-icon" for="search"><i class="material-icons">search</i>Location</label> -->
+                        </div>
+                    </form>
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+                </div>
+
+                <br><br>
+
+            </div>
+        </div>
+        <div class="parallax"><img src="assets/images/brooke-lark-M4E7X3z80PQ-unsplash.jpg"
+                alt="Unsplashed background img 1"></div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <div class="row">
+                <div class="row">
+                    <h3 class="center">Trending Restaurants</h3>
+                </div>
+                <div class="col s12 m4">
+                    <div class="icon-block">
+
+                        <img src="assets/images/200.png" alt="">
+                        <h5 class="center">Name</h5>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="icon-block">
+
+                        <img src="assets/images/200.png" alt="">
+                        <h5 class="center">Name</h5>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="icon-block">
+
+                        <img src="assets/images/200.png" alt="">
+                        <h5 class="center">Name</h5>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="page-footer teal">
+        <div class="container">
+            <div class="row center">
+                
+                <!-- <div class="col"> -->
+                    <h5 class="white-text">Powered by:</h5>
+                    <ul>
+                        <li><a class="white-text" href="#!">Zomato API</a></li>
+                        <li><a class="white-text" href="#!">Google Maps API</a></li>
+                        <li><a class="white-text" href="#!">Another API</a></li>
+                    </ul>
+                <!-- </div> -->
+                
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="assets/js/materialize.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
+
 </html>
