@@ -82,6 +82,7 @@ img {
 }
 
 #map {
+  background-color: #ffffff;
   width: 400px;
   height: 400px;
 }
