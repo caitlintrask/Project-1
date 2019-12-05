@@ -11,8 +11,8 @@ $(document).ready(function() {
 	$(".datepicker").datepicker();
 });
 
-// Google maps API call
-
+// GOOGLE MAPS API CALL
+// lat and lon will later be put in vars and set to the responses lat and lon
 var map;
 function initMap() {
 	map = new google.maps.Map(document.getElementById("map"), {
