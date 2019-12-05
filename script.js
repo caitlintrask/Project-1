@@ -32,10 +32,10 @@ $.ajax({
 })
 
 // "Restaurant" API Call
-var ratingTextQueryURL = "https://developers.zomato.com/api/v2.1/restaurant?res_id=16774318";
+var restaurantQueryURL = "https://developers.zomato.com/api/v2.1/restaurant?res_id=16774318";
 
 $.ajax({
-    url: ratingTextQueryURL,
+    url: restaurantQueryURL,
     headers:{ 'user-key': APIKey },
     method: "GET"
 })
@@ -55,11 +55,21 @@ $.ajax({
     // restaurant rating and price info
     console.log("rating text: " + response.user_rating.rating_text);
     console.log("aggregate rating: " + response.user_rating.aggregate_rating);
-    console.log("price range: " + response.price_range);
+    console.log("cost for two: " + response.average_cost_for_two);
 
     // restaurant photos
     console.log("feautured photo url: " + response.thumb);
     console.log("photo gallery urls: " , response.photos);
 })
 
+// RESTAURANT IDs
+var searchResQueryURL = "https://developers.zomato.com/api/v2.1/search"
 
+$.ajax({
+    url: searchResQueryURL,
+    headers:{ 'user-key': APIKey },
+    method: "GET"
+})
+    .then(function(response) {
+    console.log(response);
+})
