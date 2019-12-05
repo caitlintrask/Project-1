@@ -59,8 +59,9 @@ $.ajax({
 			position: myLatLng,
 			map: map,
 			animation: google.maps.Animation.DROP
-		});
-	}
+        });
+        google.maps.Data.StyleOptions.fillOpacity = 1;
+    	}
 	initMap();
 
 	// restaurant contact info
