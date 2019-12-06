@@ -64,11 +64,8 @@ footer.page-footer {
   margin: 0;
 }
 
-img {
-  width: -webkit-fill-available;
-}
-
 #parallaxImg {
+  width: -webkit-fill-available;
   opacity: 0.5;
 }
 
@@ -87,4 +84,9 @@ img {
 #map {
   width: 400px;
   height: 400px;
+}
+
+#photo1, #photo2, #photo3, #photo4, #photo5, #photo6 {
+  height: 150px;
+  padding-right: 10px;
 }
