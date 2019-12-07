@@ -31,10 +31,14 @@ $.ajax({
 });
 
 // "Restaurant" API Call
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 
 // need to figure out how to get the restaurant id from the responses of restaurant options and input that in the URL here
 
 // var restaurantID = 
+>>>>>>> 3c77b61403482453cdd22517427eec0ebe592b3c
 var restaurantQueryURL = "https://developers.zomato.com/api/v2.1/restaurant?res_id=16774318";
 
 $.ajax({
@@ -76,7 +80,11 @@ $.ajax({
     .then(function(response) {
     console.log(response);
 })
+<<<<<<< HEAD
+=======
+=======
 
+>>>>>>> 3c77b61403482453cdd22517427eec0ebe592b3c
 var ratingTextQueryURL =
 	"https://developers.zomato.com/api/v2.1/restaurant?res_id=16774318";
 
@@ -143,4 +151,8 @@ $.ajax({
     $("#photo5").attr("src", response.photos[4].photo.thumb_url)
     $("#photo6").attr("src", response.photos[5].photo.thumb_url)
 });
+<<<<<<< HEAD
+>>>>>>> c368f332cc914e4a737978d7c25647262f519808
+=======
 
+>>>>>>> 3c77b61403482453cdd22517427eec0ebe592b3c
