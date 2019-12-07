@@ -31,14 +31,10 @@ $.ajax({
 });
 
 // "Restaurant" API Call
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
 // need to figure out how to get the restaurant id from the responses of restaurant options and input that in the URL here
 
 // var restaurantID = 
->>>>>>> 3c77b61403482453cdd22517427eec0ebe592b3c
 var restaurantQueryURL = "https://developers.zomato.com/api/v2.1/restaurant?res_id=16774318";
 
 $.ajax({
@@ -69,22 +65,21 @@ $.ajax({
     console.log("photo gallery urls: " , response.photos);
 })
 
-// RESTAURANT IDs
-var searchResQueryURL = "https://developers.zomato.com/api/v2.1/search"
+// SEARCH RESTAURANT IDs
+    var searchResQueryURL = "https://developers.zomato.com/api/v2.1/search"
 
-$.ajax({
-    url: searchResQueryURL,
-    headers:{ 'user-key': APIKey },
-    method: "GET"
-})
-    .then(function(response) {
-    console.log(response);
-})
-<<<<<<< HEAD
-=======
-=======
+    $.ajax({
+        url: searchResQueryURL,
+        headers:{ 'user-key': APIKey },
+        method: "GET"
+    })
+        .then(function(response) {
+        console.log(response);
+        console.log("search result restaurant id: " + response.restaurants[0].restaurant.R.res_id);
+        console.log("search result City: " + response.restaurants[0].restaurant.location.city);
+        console.log("search result city ID: " + response.restaurants[0].restaurant.location.city_id);
+    })
 
->>>>>>> 3c77b61403482453cdd22517427eec0ebe592b3c
 var ratingTextQueryURL =
 	"https://developers.zomato.com/api/v2.1/restaurant?res_id=16774318";
 
@@ -93,14 +88,13 @@ $.ajax({
 	headers: { "user-key": APIKey },
 	method: "GET"
 }).then(function(response) {
-	console.log(response);
 
 	console.log("latitude: " + response.location.latitude);
 	console.log("longitude: " + response.location.longitude);
 
 	var lat = response.location.latitude;
 	var lon = response.location.longitude;
-	// var map;
+	var map;
 	function initMap() {
 		var myLatLng =  { lat: parseFloat(lat), lng: parseFloat(lon) };
 
@@ -151,8 +145,4 @@ $.ajax({
     $("#photo5").attr("src", response.photos[4].photo.thumb_url)
     $("#photo6").attr("src", response.photos[5].photo.thumb_url)
 });
-<<<<<<< HEAD
->>>>>>> c368f332cc914e4a737978d7c25647262f519808
-=======
 
->>>>>>> 3c77b61403482453cdd22517427eec0ebe592b3c
