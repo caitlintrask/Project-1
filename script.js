@@ -1,4 +1,7 @@
 var APIKey = "3772214fc0f50dcfebaa475c98dfa002";
+var cityID;
+
+function cuisineandlocation () {
 
 // "Denver Cuisines" API Call
 var cuisineQueryURL =
@@ -9,7 +12,7 @@ $.ajax({
 	headers: { "user-key": APIKey },
 	method: "GET"
 }).then(function(response) {
-	console.log(response);
+    console.log(response);
 	localStorage.setItem("cuisine", JSON.stringify(response));
 });
 
@@ -17,21 +20,17 @@ $.ajax({
 var locationQueryURL = "https://developers.zomato.com/api/v2.1/cities?q=Denver";
 
 $.ajax({
-	url: locationQueryURL,
+    url: locationQueryURL,
 	headers: { "user-key": APIKey },
 	method: "GET"
 }).then(function(response) {
-	console.log(response);
-
-	console.log("city name: " + response.location_suggestions[0].name);
-	localStorage.setItem("city name", response.location_suggestions[0].name);
-
+    console.log(response);
+    cityID=response.location_suggestions[0].id;
 	console.log("city id: " + response.location_suggestions[0].id);
 	localStorage.setItem("city id", response.location_suggestions[0].id);
 });
-
+}
 // "Restaurant" API Call
-
 // need to figure out how to get the restaurant id from the responses of restaurant options and input that in the URL here
 
 // var restaurantID = 
@@ -65,6 +64,21 @@ $.ajax({
     console.log("photo gallery urls: " , response.photos);
 })
 
+// LOCATION INPUT
+var searchInput=$("#search").val();
+
+$("#search-submit-button").on("click",(function() {
+    cuisineandlocation();
+var queryURL = "https://developers.zomato.com/api/v2.1/search?entity_id=" + cityID + "&entity_type=city" + APIKey;
+console.log(searchInput);
+
+$.ajax({
+    	url: queryURL,
+    	headers: { "user-key": APIKey },
+    	method: "GET"
+    }).then(function(response) {
+        console.log("SEARCH",response);
+        
 // SEARCH RESTAURANT IDs
     var searchResQueryURL = "https://developers.zomato.com/api/v2.1/search"
 
@@ -78,8 +92,9 @@ $.ajax({
         console.log("search result restaurant id: " + response.restaurants[0].restaurant.R.res_id);
         console.log("search result City: " + response.restaurants[0].restaurant.location.city);
         console.log("search result city ID: " + response.restaurants[0].restaurant.location.city_id);
+        })
     })
-
+}))
 var ratingTextQueryURL =
 	"https://developers.zomato.com/api/v2.1/restaurant?res_id=16774318";
 
