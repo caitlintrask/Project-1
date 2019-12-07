@@ -31,6 +31,49 @@ $.ajax({
 });
 
 // "Restaurant" API Call
+
+var restaurantQueryURL = "https://developers.zomato.com/api/v2.1/restaurant?res_id=16774318";
+
+$.ajax({
+    url: restaurantQueryURL,
+    headers:{ 'user-key': APIKey },
+    method: "GET"
+})
+    .then(function(response) {
+    console.log(response);
+    
+    // restaurant contact info
+    console.log("restaurant name: " + response.name);
+    console.log("restaurant cuisine: " + response.cuisines);
+    console.log("address: " + response.location.address);
+    console.log("phone number: " + response.phone_numbers);
+
+    // restaurant website links
+    console.log("website: " + response.url);
+    console.log("menu: " + response.menu_url);
+
+    // restaurant rating and price info
+    console.log("rating text: " + response.user_rating.rating_text);
+    console.log("aggregate rating: " + response.user_rating.aggregate_rating);
+    console.log("cost for two: " + response.average_cost_for_two);
+
+    // restaurant photos
+    console.log("feautured photo url: " + response.thumb);
+    console.log("photo gallery urls: " , response.photos);
+})
+
+// RESTAURANT IDs
+var searchResQueryURL = "https://developers.zomato.com/api/v2.1/search"
+
+$.ajax({
+    url: searchResQueryURL,
+    headers:{ 'user-key': APIKey },
+    method: "GET"
+})
+    .then(function(response) {
+    console.log(response);
+})
+
 var ratingTextQueryURL =
 	"https://developers.zomato.com/api/v2.1/restaurant?res_id=16774318";
 
@@ -83,3 +126,4 @@ $.ajax({
 	console.log("feautured photo url: " + response.thumb);
 	console.log("photo gallery urls: ", response.photos);
 });
+

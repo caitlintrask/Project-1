@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Search Results</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="assets/css/style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="white" role="navigation">
+        <div class="nav-wrapper container">
+            <a id="logo-container" href="#" class="brand-logo">Unique Eats</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Home</a></li>
+            </ul>
+
+            <ul id="nav-mobile" class="sidenav">
+                <li><a href="#">Home</a></li>
+            </ul>
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+
+    <!-- SEARCH RESULTS FILTER -->
+
+    <div class="row center">
+        <div class="input-field col s6">
+            <select class="browser-default">
+                <option value="" disabled selected>Average Price for Two</option>
+                <option id="price-20" value="1">$20</option>
+                <option id="price-40" value="2">$40</option>
+                <option id="price-60" value="3">$60+</option>
+            </select>
+        </div>
+        <div class="input-field col s6">
+            <select class="browser-default">
+                <option value="" disabled selected>Rating</option>
+                <option id="1-star" value="1">*</option>
+                <option id="2-stars" value="2">**</option>
+                <option id="3-stars" value="3">***</option>
+                <option id="4-stars" value="4">****</option>
+                <option id="5-stars" value="5">*****</option>
+            </select>
+        </div>
+    </div>
+
+    <br>
+
+    <!-- SEARCH RESULTS LIST-->
+
+    <div class="divider"></div>
+
+    <div class="row">
+        <div class="section">
+            <div class="col s6 m4 l3">
+                <img id="feature-image" src="assets/images/200.png" alt="" style="width: 200px; height: 200px;">
+            </div>
+
+            <div class="col s6 m8 l9">
+                <h5 id="restaurant-name">Restaurant Name</h5>
+                <div id="yelp-stars">
+                    *****
+                </div>
+                <div id="cuisine-type">Cuisine Type</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="row">
+        <div class="section">
+            <div class="col s6 m4 l3">
+                <img id="feature-image" src="assets/images/200.png" alt="" style="width: 200px; height: 200px;">
+            </div>
+
+            <div class="col s6 m8 l9">
+                <h5 id="restaurant-name">Restaurant Name</h5>
+                <div id="yelp-stars">
+                    *****
+                </div>
+                <div id="cuisine-type">Cuisine Type</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="row">
+        <div class="section">
+            <div class="col s6 m4 l3">
+                <img id="feature-image" src="assets/images/200.png" alt="" style="width: 200px; height: 200px;">
+            </div>
+
+            <div class="col s6 m8 l9">
+                <h5 id="restaurant-name">Restaurant Name</h5>
+                <div id="yelp-stars">
+                    *****
+                </div>
+                <div id="cuisine-type">Cuisine Type</div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="page-footer teal">
+        <div class="container">
+            <div class="row center">
+
+                <!-- <div class="col"> -->
+                <h5 class="white-text">Powered by:</h5>
+                <ul>
+                    <li><a class="white-text" href="#!">Zomato API</a></li>
+                    <li><a class="white-text" href="#!">Google Maps API</a></li>
+                    <li><a class="white-text" href="https://www.yelp.com/">Yelp API</a></li>
+                </ul>
+                <!-- </div> -->
+
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="assets/js/materialize.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
