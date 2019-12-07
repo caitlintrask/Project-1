@@ -66,6 +66,9 @@ footer.page-footer {
 
 img {
   width: -webkit-fill-available;
+}
+
+#parallaxImg {
   opacity: 0.5;
 }
 
@@ -79,4 +82,9 @@ img {
 }
 .parallax {
   opacity: .5;
+}
+
+#map {
+  width: 400px;
+  height: 400px;
 }
