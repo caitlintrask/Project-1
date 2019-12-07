@@ -1,40 +1,75 @@
 var APIKey = "3772214fc0f50dcfebaa475c98dfa002";
 var cityID;
+// var searchInput=$("#search").val();
 
-function cuisineandlocation () {
+$("#search-submit-button").on("click", function(event) {
+	event.preventDefault();
 
-// "Denver Cuisines" API Call
-var cuisineQueryURL =
-	"https://developers.zomato.com/api/v2.1/cuisines?city_id=305";
+	var locationQueryURL =
+		"https://developers.zomato.com/api/v2.1/cities?q=" + $("#search").val();
 
-$.ajax({
-	url: cuisineQueryURL,
-	headers: { "user-key": APIKey },
-	method: "GET"
-}).then(function(response) {
-    console.log(response);
-	localStorage.setItem("cuisine", JSON.stringify(response));
+	$.ajax({
+		url: locationQueryURL,
+		headers: { "user-key": APIKey },
+		method: "GET"
+	}).then(function(response) {
+		console.log(response);
+		cityID = response.location_suggestions[0].id;
+		console.log("city id: " + response.location_suggestions[0].id);
+		localStorage.setItem("city id", response.location_suggestions[0].id);
+
+		var searchURL =
+			"https://developers.zomato.com/api/v2.1/search?entity_id=" +
+			cityID +
+			"&entity_type=city&cuisines=" +
+			$("#cuisineType")
+				.find(":selected")
+				.val() +
+			"&user-key=" +
+			APIKey;
+		console.log(searchURL);
+		console.log("Search input: " + $("#search").val());
+
+		$.ajax({
+			url: searchURL,
+			headers: { "user-key": APIKey },
+			method: "GET"
+		}).then(function(response) {
+			console.log("SEARCH", response);
+
+			// $.ajax({
+			//     url: searchResQueryURL,
+			//     headers:{ 'user-key': APIKey },
+			//     method: "GET"
+			// })
+			//     .then(function(response) {
+			//     console.log(response);
+			//     console.log("search result restaurant id: " + response.restaurants[0].restaurant.R.res_id);
+			//     console.log("search result City: " + response.restaurants[0].restaurant.location.city);
+			//     console.log("search result city ID: " + response.restaurants[0].restaurant.location.city_id);
+			//     })
+		});
+	});
+
+	// var searchURL =
+	// 	"https://developers.zomato.com/api/v2.1/search?entity_id=" +
+	// 	cityID +
+	// 	"&entity_type=city" +
+	// 	APIKey;
 });
 
-// "Location" API Call
-var locationQueryURL = "https://developers.zomato.com/api/v2.1/cities?q=Denver";
+// function cuisineandlocation() {
+// 	// "Denver Cuisines" API Call
 
-$.ajax({
-    url: locationQueryURL,
-	headers: { "user-key": APIKey },
-	method: "GET"
-}).then(function(response) {
-    console.log(response);
-    cityID=response.location_suggestions[0].id;
-	console.log("city id: " + response.location_suggestions[0].id);
-	localStorage.setItem("city id", response.location_suggestions[0].id);
-});
-}
+// 	// "Location" API Call
+
+// }
 // "Restaurant" API Call
 // need to figure out how to get the restaurant id from the responses of restaurant options and input that in the URL here
 
-// var restaurantID = 
-var restaurantQueryURL = "https://developers.zomato.com/api/v2.1/restaurant?res_id=16774318";
+// var restaurantID =
+var restaurantQueryURL =
+	"https://developers.zomato.com/api/v2.1/restaurant?res_id=16774318";
 
 $.ajax({
 	url: restaurantQueryURL,
@@ -48,7 +83,7 @@ $.ajax({
 	console.log("restaurant cuisine: " + response.cuisines);
 	console.log("address: " + response.location.address);
 	console.log("phone number: " + response.phone_numbers);
-  
+
 	// restaurant website links
 	console.log("website: " + response.url);
 	console.log("menu: " + response.menu_url);
@@ -64,65 +99,17 @@ $.ajax({
 });
 
 // RESTAURANT IDs
-var searchResQueryURL = "https://developers.zomato.com/api/v2.1/search";
-
-$.ajax({
-	url: searchResQueryURL,
-	headers: { "user-key": APIKey },
-	method: "GET"
-}).then(function(response) {
-	console.log(response);
-});
-    url: searchResQueryURL,
-    headers:{ 'user-key': APIKey },
-    method: "GET"
-})
-    .then(function(response) {
-    console.log(response);
-})
-
 
 // LOCATION INPUT
-var searchInput=$("#search").val();
 
-$("#search-submit-button").on("click",(function() {
-    cuisineandlocation();
-var queryURL = "https://developers.zomato.com/api/v2.1/search?entity_id=" + cityID + "&entity_type=city" + APIKey;
-console.log(searchInput);
-
-$.ajax({
-    	url: queryURL,
-    	headers: { "user-key": APIKey },
-    	method: "GET"
-    }).then(function(response) {
-        console.log("SEARCH",response);
-        
-// SEARCH RESTAURANT IDs
-    var searchResQueryURL = "https://developers.zomato.com/api/v2.1/search"
-
-    $.ajax({
-        url: searchResQueryURL,
-        headers:{ 'user-key': APIKey },
-        method: "GET"
-    })
-        .then(function(response) {
-        console.log(response);
-        console.log("search result restaurant id: " + response.restaurants[0].restaurant.R.res_id);
-        console.log("search result City: " + response.restaurants[0].restaurant.location.city);
-        console.log("search result city ID: " + response.restaurants[0].restaurant.location.city_id);
-        })
-    })
-}))
-
-var individualRestURL = "https://developers.zomato.com/api/v2.1/restaurant?res_id=16774318";
-
+var individualRestURL =
+	"https://developers.zomato.com/api/v2.1/restaurant?res_id=16774318";
 
 $.ajax({
 	url: individualRestURL,
 	headers: { "user-key": APIKey },
 	method: "GET"
 }).then(function(response) {
-
 	console.log("latitude: " + response.location.latitude);
 	console.log("longitude: " + response.location.longitude);
 
@@ -168,40 +155,45 @@ $.ajax({
 	$("#cost").text("Average Cost for Two: $" + response.average_cost_for_two);
 
 	$("#rating").text("Rating: " + response.user_rating.aggregate_rating);
-	
+
 	var rating = response.user_rating.aggregate_rating;
 
 	if (rating === 5) {
-		$("#rating").attr("src", "assets/yelp_stars/web_and_ios/small/small_5.png")
+		$("#rating").attr("src", "assets/yelp_stars/web_and_ios/small/small_5.png");
+	} else if (rating < 5 && rating >= 4.5) {
+		$("#rating").attr(
+			"src",
+			"assets/yelp_stars/web_and_ios/small/small_4_half.png"
+		);
+	} else if (rating >= 4 && rating <= 4.5) {
+		$("#rating").attr(
+			"src",
+			"assets/yelp_stars/web_and_ios/small/small_4@2x.png"
+		);
+	} else if (rating >= 3.5 && rating <= 4) {
+		$("#rating").attr(
+			"src",
+			"assets/yelp_stars/web_and_ios/small/small_3_half.png"
+		);
+	} else if (rating >= 3 && rating <= 3.5) {
+		$("#rating").attr("src", "assets/yelp_stars/web_and_ios/small/small_3.png");
+	} else if (rating >= 2.5 && rating <= 3) {
+		$("#rating").attr(
+			"src",
+			"assets/yelp_stars/web_and_ios/small/small_2_half.png"
+		);
+	} else if (rating >= 2 && rating <= 2.5) {
+		$("#rating").attr("src", "assets/yelp_stars/web_and_ios/small/small_2.png");
+	} else if (rating >= 1.5 && rating <= 2) {
+		$("#rating").attr(
+			"src",
+			"assets/yelp_stars/web_and_ios/small/small_1_half.png"
+		);
+	} else if (rating >= 1 && rating <= 1.5) {
+		$("#rating").attr("src", "assets/yelp_stars/web_and_ios/small/small_1.png");
+	} else if (rating < 1) {
+		$("#rating").attr("src", "assets/yelp_stars/web_and_ios/small/small_0.png");
 	}
-	else if (rating < 5 && rating >= 4.5) {
-		$("#rating").attr("src", "assets/yelp_stars/web_and_ios/small/small_4_half.png")
-	}
-	else if (rating >= 4 && rating <= 4.5) {
-		$("#rating").attr("src", "assets/yelp_stars/web_and_ios/small/small_4@2x.png")
-	}
-	else if (rating >= 3.5 && rating <= 4) {
-		$("#rating").attr("src", "assets/yelp_stars/web_and_ios/small/small_3_half.png")
-	}
-	else if (rating >= 3 && rating <= 3.5) {
-		$("#rating").attr("src", "assets/yelp_stars/web_and_ios/small/small_3.png")
-	}
-	else if (rating >= 2.5 && rating <= 3) {
-		$("#rating").attr("src", "assets/yelp_stars/web_and_ios/small/small_2_half.png")
-	}
-	else if (rating >= 2 && rating <= 2.5) {
-		$("#rating").attr("src", "assets/yelp_stars/web_and_ios/small/small_2.png")
-	}
-	else if (rating >= 1.5 && rating <= 2) {
-		$("#rating").attr("src", "assets/yelp_stars/web_and_ios/small/small_1_half.png")
-	}
-	else if (rating >= 1 && rating <= 1.5) {
-		$("#rating").attr("src", "assets/yelp_stars/web_and_ios/small/small_1.png")
-	}
-	else if (rating < 1) {
-		$("#rating").attr("src", "assets/yelp_stars/web_and_ios/small/small_0.png")
-	}
-
 
 	// restaurant photos
 	console.log("feautured photo url: " + response.thumb);
