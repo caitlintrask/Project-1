@@ -19,11 +19,11 @@
         <div class="nav-wrapper container">
             <a id="logo-container" href="#" class="brand-logo">Unique Eats</a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="#">Home</a></li>
+                <li><a href="index.html">Home</a></li>
             </ul>
 
             <ul id="nav-mobile" class="sidenav">
-                <li><a href="#">Home</a></li>
+                <li><a href="index.html">Home</a></li>
             </ul>
             <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         </div>
@@ -31,21 +31,39 @@
 
     <div class="container"><br><br>
         <div class="row">
-            <div class="col s12 m6 l4"><img id="featured-photo" src="assets/images/200.png" alt="Featured Image"></div>
-            <div class="col s12 m6 l4">
+            <div class="col s4"><img src="" alt="Featured Image" style="height: 200px; width: 200px;" id="featuredImg"></div>
+            <div class="col s6 m4 l8">
                 <div class="row">
-                    <div id="restaurant-name"><h3>Restaurant Name</h3></div>
-                    <div id="yelp-stars">Rating</div>
-                    <div id ="price">Price</div>
-                    <div id="restaurant-link">Restaurant Website</div>
+                    <div><h3 id="rName"></h3></div>
+                    <div><h5 id="rCuisine"></h5></div>
+                    <div id="rating"></div>
+                    <div id="price"></div>
+                    <div><a href="" id="rWebsite">Website</a></div>
                 </div>
             </div>
-            <div class="col s12 m6 l4" id="contactInfo">Contact Info Here</div>
+            <div class="col s2" id="contactInfo">
+                <p id="address"></p>
+                <p id="phoneNum"></p>
+            </div>
         </div>
         <div class="row">
-
-            <div class="col s6 m8 l10" id="photos">Photos Here</div>
-            <div class="col s6 m4 l2" id="map"></div>
+            <div class="col s6" id="photosDiv">
+                <div class="row">
+                    <div style="display: flex">
+                        <img src="" alt="photo1" id="photo1">
+                        <img src="" alt="photo1" id="photo2">
+                        <img src="" alt="photo1" id="photo3">
+                    </div>
+                </div>
+                <div class="row">
+                    <div style="display: flex">
+                            <img src="" alt="photo1" id="photo4">
+                            <img src="" alt="photo1" id="photo5">
+                            <img src="" alt="photo1" id="photo6">
+                    </div>
+                </div>
+            </div>
+            <div class="col s6" id="map" style="display: flex"></div>
         </div>
     </div>
     <footer class="page-footer teal">

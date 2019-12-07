@@ -8,83 +8,102 @@
 
 nav ul a,
 nav .brand-logo {
-  color: #444;
+	color: #444;
 }
 
 #logo-container {
-  font-family: 'Bebas Neue', cursive;
+	font-family: "Bebas Neue", cursive;
 }
 
-h1, h2, h3, h4, h5 , h6, p {
-  font-family: 'Montserrat', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	font-family: "Montserrat", sans-serif;
 }
 
 p {
-  line-height: 2rem;
+	line-height: 2rem;
 }
 
 .sidenav-trigger {
-  color: #26a69a;
+	color: #26a69a;
 }
 
 .parallax-container {
-  min-height: 380px;
-  line-height: 0;
-  height: auto;
-  color: rgba(255,255,255,.9);
+	min-height: 380px;
+	line-height: 0;
+	height: auto;
+	color: rgba(255, 255, 255, 0.9);
 }
-  .parallax-container .section {
-    width: 100%;
-  }
-
-@media only screen and (max-width : 992px) {
-  .parallax-container .section {
-    position: absolute;
-    top: 40%;
-  }
-  #index-banner .section {
-    top: 10%;
-  }
+.parallax-container .section {
+	width: 100%;
 }
 
-@media only screen and (max-width : 600px) {
-  #index-banner .section {
-    top: 0;
-  }
+@media only screen and (max-width: 992px) {
+	.parallax-container .section {
+		position: absolute;
+		top: 40%;
+	}
+	#index-banner .section {
+		top: 10%;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	#index-banner .section {
+		top: 0;
+	}
 }
 
 .icon-block {
-  padding: 0 15px;
+	padding: 0 15px;
 }
 .icon-block .material-icons {
-  font-size: inherit;
+	font-size: inherit;
 }
 
 footer.page-footer {
-  margin: 0;
-}
-
-img {
-  width: -webkit-fill-available;
+	margin: 0;
 }
 
 #parallaxImg {
-  opacity: 0.5;
+	width: -webkit-fill-available;
+	opacity: 0.5;
 }
 
 #search {
-  background-color: rgba(255, 255, 255, 0.9);
-  width: 100%;
-  padding: 5px;
-  border: 1px solid #f2f2f2;
-  border-radius: 2px;
-  height: 3rem;
-}
-.parallax {
-  opacity: .5;
+	background-color: rgba(255, 255, 255, 0.9);
+	width: 100%;
+	padding: 5px;
+	border: 1px solid #f2f2f2;
+	border-radius: 2px;
+	height: 3rem;
 }
 
 #map {
-  width: 400px;
-  height: 400px;
+	width: 340px;
+  height: 340px;
+  margin-left: 10px;
+}
+
+#photo1,
+#photo2,
+#photo3,
+#photo4,
+#photo5,
+#photo6 {
+	height: 150px;
+	padding-right: 10px;
+}
+
+#photosDiv {
+	width: 50%;
+	margin-left: auto;
+	margin-right: 10px;
+	left: auto;
+	right: auto;
 }
