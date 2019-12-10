@@ -121,8 +121,9 @@ footer.page-footer {
 
 #indRestPage {
   display: none;
+}
 
-  #spinner {
+#spinner {
   border: 16px solid #f3f3f3; /* Light grey */
   border-top: 16px solid gray; 
   border-radius: 50%;
