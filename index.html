@@ -29,19 +29,21 @@
         </div>
     </nav>
 
-    <div id="index-banner" class="parallax-container">
-        <div class="section no-pad-bot">
-            <div class="container">
-                <br><br>
-                <h1 class="header center grey-text text-darken-4">Try your palette!</h1>
-                <div class="row center">
-                    <h5 class="header col s12 grey-text text-darken-4">A clean-cut search engine for finding different
-                        international foods
-                    </h5>
-                </div>
-                <div class="row center">
-                    <div class="input-field col s6">
-                        <select class="browser-default" id="cuisineType">
+    <div class="container" id="homePage">
+        <div id="index-banner" class="parallax-container">
+            <div class="section no-pad-bot">
+                <div class="container">
+                    <br><br>
+                    <h1 class="header center grey-text text-darken-4">Try your palette!</h1>
+                    <div class="row center">
+                        <h5 class="header col s12 grey-text text-darken-4">A clean-cut search engine for finding
+                            different
+                            international foods
+                        </h5>
+                    </div>
+                    <div class="row center">
+                        <div class="input-field col s6">
+                            <select class="browser-default" id="cuisineType">
                                 <option value="" disabled selected>Cuisine Type</option>
                                 <option value="152">African</option>
                                 <option value="1">American</option>
@@ -69,21 +71,23 @@
                                 <option value="93">Tibetan</option>
                                 <option value="142">Turkish</option>
                             </select>
-                    </div>
-                    <form>
-                        <div class="input-field col s6">
-                            <input class="browser-default" id="search" type="text" placeholder=" Location" required>
                         </div>
-                    </form>
-                    <button class="btn waves-effect waves-light" id="search-submit-button" type="submit" name="action">Submit</button>
+                        <form>
+                            <div class="input-field col s6">
+                                <input class="browser-default" id="search" type="text" placeholder=" Location" required>
+                            </div>
+                        </form>
+                        <button class="btn waves-effect waves-light" id="search-submit-button" type="submit"
+                            name="action">Submit</button>
+                    </div>
+
+                    <br><br>
+
                 </div>
-
-                <br><br>
-
             </div>
-        </div>
-        <div class="parallax" id="parallaxImgDiv"><img src="assets/images/brooke-lark-M4E7X3z80PQ-unsplash.jpg"
-                alt="Unsplashed background img 1" id="parallaxImg"></div>
+         <div class="parallax" id="parallaxImgDiv"><img src="assets/images/brooke-lark-M4E7X3z80PQ-unsplash.jpg"
+                    alt="Unsplashed background img 1" id="parallaxImg"></div>
+      </div>
     </div>
     <div id="spinner">
     </div>
@@ -95,44 +99,98 @@
                 </div>
                 <div class="col s12 m4">
                     <div class="icon-block">
-
-                        <img src="assets/images/200.png" alt="">
-                        <h5 class="center">Name</h5>
+        <!-- <div class="container">
+            <div class="section">
+                    <div class="row">
+                        <div class="row">
+                            <h3 class="center">Trending Restaurants</h3>
+                        </div>
+                        <div class="col s12 m4">
+                            <div class="icon-block">
+                                
+                                <img src="assets/images/200.png" alt="">
+                                <h5 class="center">Name</h5>
+                            </div>
+                        </div>
+                        
+                        <div class="col s12 m4">
+                            <div class="icon-block">
+                                
+                                <img src="assets/images/200.png" alt="">
+                                <h5 class="center">Name</h5>
+                            </div>
+                        </div>
+                        
+                        <div class="col s12 m4">
+                            <div class="icon-block">
+                                
+                                <img src="assets/images/200.png" alt="">
+                                <h5 class="center">Name</h5>
+                            </div>
+                        </div>
                     </div>
                 </div>
+        </div> -->
+    </div>
 
-                <div class="col s12 m4">
-                    <div class="icon-block">
+    <div class="container" id="results"></div>
 
-                        <img src="assets/images/200.png" alt="">
-                        <h5 class="center">Name</h5>
+    <div class="container" id="indRestPage">
+        <div class="container"><br><br>
+            <div class="row">
+                <div class="col s4 m4 l4"><img src="" alt="Featured Image" style="height: 200px; width: 200px;"
+                        id="featuredImg"></div>
+                <div class="col s6 m6 l6">
+                    <div class="row">
+                        <div>
+                            <h3 id="rName"></h3>
+                        </div>
+                        <div><img src="" id="rating"></div>
+                        <div>
+                            <h5 id="rCuisine"></h5>
+                        </div>
+                        <div id="cost"></div>
+                        <div><a href="" id="rWebsite">Website</a></div>
                     </div>
                 </div>
-
-                <div class="col s12 m4">
-                    <div class="icon-block">
-
-                        <img src="assets/images/200.png" alt="">
-                        <h5 class="center">Name</h5>
-                    </div>
+                <div class="col s2 m2 l2" id="contactInfo">
+                    <p id="address"></p>
+                    <p id="phoneNum"></p>
                 </div>
             </div>
-        </div> -->
+            <div class="row">
+                <div class="col s6 m6 l6" id="photosDiv">
+                    <div class="row">
+                        <div style="display: flex">
+                            <img src="" alt="photo1" id="photo1">
+                            <img src="" alt="photo1" id="photo2">
+                            <img src="" alt="photo1" id="photo3">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div style="display: flex">
+                            <img src="" alt="photo1" id="photo4">
+                            <img src="" alt="photo1" id="photo5">
+                            <img src="" alt="photo1" id="photo6">
+                        </div>
+                    </div>
+                </div>
+                <div class="col s6 m6 l6" id="map" style="display: flex"></div>
+            </div>
+        </div>
     </div>
 
     <footer class="page-footer teal">
         <div class="container">
             <div class="row center">
-                
+
                 <!-- <div class="col"> -->
-                    <h5 class="white-text">Powered by:</h5>
-                    <ul>
-                        <li><a class="white-text" href="#!">Zomato API</a></li>
-                        <li><a class="white-text" href="#!">Google Maps API</a></li>
-                        <li><a class="white-text" href="https://www.yelp.com/">Yelp API</a></li>
-                    </ul>
-                <!-- </div> -->
-                
+                <h5 class="white-text">Powered by:</h5>
+                <ul>
+                    <li><a class="white-text" href="#!">Zomato API</a></li>
+                    <li><a class="white-text" href="#!">Google Maps API</a></li>
+                    <li><a class="white-text" href="https://www.yelp.com/">Yelp API</a></li>
+                </ul>
             </div>
         </div>
         <div class="footer-copyright">
@@ -143,13 +201,13 @@
     </footer>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8UehJlY49yAESkdm8AfymogLs4cZOweQ&callback=initMap"
-    async defer></script>
+        async defer></script>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script>
-            function initMap() {
-                //
-            }
-        </script>
+        function initMap() {
+            //
+        }
+    </script>
     <script src="assets/js/materialize.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="script.js"></script>

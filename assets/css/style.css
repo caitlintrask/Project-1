@@ -118,7 +118,15 @@ footer.page-footer {
 .btn {
   margin-top: 4px;
 }
-#spinner {
+
+#results {
+  display: none;
+}
+
+#indRestPage {
+  display: none;
+
+  #spinner {
   border: 16px solid #f3f3f3; /* Light grey */
   border-top: 16px solid gray; 
   border-radius: 50%;

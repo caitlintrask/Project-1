@@ -4,9 +4,8 @@ var cityID;
 
 $("#search-submit-button").on("click", function(event) {
 	event.preventDefault();
-	
-	$("#spinner").css("display", "block");
-
+  $("#spinner").css("display", "block");
+  
 	var locationQueryURL =
 		"https://developers.zomato.com/api/v2.1/cities?q=" +
 		$("#search").val() +
@@ -41,8 +40,9 @@ $("#search-submit-button").on("click", function(event) {
 			method: "GET"
 		}).then(function(response) {
 			console.log("SEARCH", response);
+            $("#spinner").css("display", "none");
+            $("#results").css("display", "block");
 
-		$("#spinner").css("display", "none");
 			// window.open("search-results.html", "_blank");
 
 			// console.log(response.restaurants[0].restaurant.featured_image);
@@ -64,22 +64,27 @@ $("#search-submit-button").on("click", function(event) {
                                 <h5>${response.restaurants[i].restaurant.name}</h5>
                                 <div value="${stars}"></div>
                                 <div>${response.restaurants[i].restaurant.cuisines}</div>
-                                <div class="moreBtn"></div>
+                                <div class="moreBtn" id="moreBtn${response.restaurants[i].restaurant.id}"></div>
                             </div>
 
                         </div>
                     </div>`
-				);
+                );
+                
+				var moreBtns = $("<button>")
+                // moreBtns.text("More Info").attr("class", "waves-effect waves-light btn").attr("value", response.restaurants[i].restaurant.id);
+                
+                moreBtns.text("More Info").addClass("waves-effect waves-light btn")
 
-				var moreBtns = $("button");
-				moreBtns.text("More Info");
-                moreBtns.attr("class", "waves-effect waves-light btn");
-                moreBtns.attr("value", response.restaurants[i].restaurant.id);
-				$(".moreBtn").append(moreBtns);
-			}
-            // $(".moreBtn").html($('<a class="waves-effect waves-light btn" value="${response.restaurants[i].restaurant.id}>More Info</a>'));
-            // <a class="waves-effect waves-light btn" value="${response.restaurants[i].restaurant.id}>More Info</a>
-			// NOT READING THE BUTTON PART OF THIS??????
+                console.log('ID', i)
+                console.log(response.restaurants[i].restaurant.id)
+
+                moreBtns.attr("value", response.restaurants[i].restaurant.id)
+                $('#moreBtn' + response.restaurants[i].restaurant.id).append(moreBtns)
+            }
+            
+
+            // moreBtns.appendTo(".moreBtn");
 
 			// $("#results1").load("index.html #results");
 
@@ -154,8 +159,13 @@ $("#search-submit-button").on("click", function(event) {
 
 			// same question as above, getting a button click to display results on another html page, but for individual restaurant results
 
-			$(document).on("click", ".btn", function() {
-				window.open("restaurantPage.html", "_blank");
+			$(document).on("click", ".moreBtn", function() {
+                // window.open("restaurantPage.html", "_blank");
+                $("#results").css("display", "none");
+                $("#indRestPage").css("display", "block");
+
+                console.log($(this).val())
+
 				var individualRestURL =
 					"https://developers.zomato.com/api/v2.1/restaurant?res_id=" +
 					$(this).val() +
