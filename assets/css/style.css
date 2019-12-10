@@ -110,3 +110,7 @@ footer.page-footer {
 	left: auto;
 	right: auto;
 }
+
+.btn {
+  margin-top: 4px;
+}
