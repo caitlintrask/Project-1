@@ -114,3 +114,11 @@ footer.page-footer {
 .btn {
   margin-top: 4px;
 }
+
+#results {
+  display: none;
+}
+
+#indRestPage {
+  display: none;
+}
