@@ -8,9 +8,10 @@
 
 // var restID = response.restaurants[i].restaurant.id;
 // val gets set in search results, so restID comes from val
+// 	"https://developers.zomato.com/api/v2.1/restaurant?res_id=" + $(this).val() + "&user-key=" + APIKey;
 
 var individualRestURL =
-	"https://developers.zomato.com/api/v2.1/restaurant?res_id=" + $(this).val() + "&user-key=" + APIKey;
+	"https://developers.zomato.com/api/v2.1/restaurant?res_id=16774318";
 
 $.ajax({
 	url: individualRestURL,
