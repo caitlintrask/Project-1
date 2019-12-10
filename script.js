@@ -4,6 +4,7 @@ var cityID;
 
 $("#search-submit-button").on("click", function(event) {
 	event.preventDefault();
+	$("#results").empty();
   $("#spinner").css("display", "block");
   
 	var locationQueryURL =
