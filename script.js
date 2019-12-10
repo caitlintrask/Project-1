@@ -4,7 +4,8 @@ var cityID;
 
 $("#search-submit-button").on("click", function(event) {
 	event.preventDefault();
-    $("#spinner").css("display", "block");
+  $("#spinner").css("display", "block");
+  
 	var locationQueryURL =
 		"https://developers.zomato.com/api/v2.1/cities?q=" +
 		$("#search").val() +
@@ -41,6 +42,7 @@ $("#search-submit-button").on("click", function(event) {
 			console.log("SEARCH", response);
             $("#spinner").css("display", "none");
             $("#results").css("display", "block");
+
 			// window.open("search-results.html", "_blank");
 
 			// console.log(response.restaurants[0].restaurant.featured_image);
