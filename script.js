@@ -4,7 +4,7 @@ var cityID;
 
 $("#search-submit-button").on("click", function(event) {
 	event.preventDefault();
-	$("#results").empty();
+	//$("#results").empty();
   $("#spinner").css("display", "block");
   
 	var locationQueryURL =
@@ -65,7 +65,7 @@ $("#search-submit-button").on("click", function(event) {
                                 <h5>${response.restaurants[i].restaurant.name}</h5>
                                 <div value="${stars}"></div>
                                 <div>${response.restaurants[i].restaurant.cuisines}</div>
-                                <div class="moreBtn" id="moreBtn${response.restaurants[i].restaurant.id}"></div>
+                                <div class="moreBtn" id="moreBtn${response.restaurants[i].restaurant.id}" data-id="${response.restaurants[i].restaurant.id}"></div>
                             </div>
 
                         </div>
@@ -80,7 +80,6 @@ $("#search-submit-button").on("click", function(event) {
                 console.log('ID', i)
                 console.log(response.restaurants[i].restaurant.id)
 
-                moreBtns.attr("value", response.restaurants[i].restaurant.id)
                 $('#moreBtn' + response.restaurants[i].restaurant.id).append(moreBtns)
             }
             
@@ -165,11 +164,14 @@ $("#search-submit-button").on("click", function(event) {
                 $("#results").css("display", "none");
                 $("#indRestPage").css("display", "block");
 
-                console.log($(this).val())
+				console.log($(this))
+				console.log('DATA ID', $(this).attr("data-id"))
 
+				var dataID=($(this).attr("data-id"))
+				
 				var individualRestURL =
 					"https://developers.zomato.com/api/v2.1/restaurant?res_id=" +
-					$(this).val() +
+					dataID +
 					"&user-key=" +
 					APIKey;
 
@@ -199,6 +201,8 @@ $("#search-submit-button").on("click", function(event) {
 						});
 					}
 					initMap();
+
+
 
 					// restaurant contact info
 					console.log("restaurant name: " + response.name);
