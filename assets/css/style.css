@@ -57,6 +57,10 @@ p {
 	#index-banner .section {
 		top: 0;
 	}
+	h1 {
+		font-size: 28px;
+		font-weight: bold;
+	}
 }
 
 .icon-block {

@@ -11,6 +11,7 @@ $("#clear-results").on("click", function (event) {
 
 $("#search-submit-button").on("click", function(event) {
 	event.preventDefault();
+	//$("#results").empty();
   $("#spinner").css("display", "block");
   $("#search-submit-button").attr("disabled", true);
 
